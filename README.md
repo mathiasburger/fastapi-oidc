@@ -2,7 +2,9 @@
 
 ## Purpose
 
-Demonstrate how to use OIDC with fastapi.
+Demonstrate how to use OIDC with PKCE with fastapi and angular. 
+
+It builds solely upon OIDC certified dependencies.
 
 ## Setup
 
@@ -30,15 +32,22 @@ Configuration:
   * Contains client `testclient` to be used with OIDC test page `https://www.keycloak.org/app/#url=http://localhost:8080&realm=myrealm&client=testclient`.
   * Contains client `myclient` to be used with OIDC + PKCE (S256) on `localhost:8000` (for the python client implementation provided in this repository).
 
-## Certified Python Implementations of OIDC
+## Certified Implementations of OIDC
 
-OpenID Connect Provider (Authentication Server):
+OpenID Connect Provider (Authentication Server, supports PKCE):
 * [oidc-op](https://github.com/IdentityPython/oidc-op)
 * [oidc-op docs](https://oidcop.readthedocs.io/en/latest/)
 
-OpenID Connect Relying Party (Client, e.g.Webapp):
+OpenID Connect Relying Party (Client, e.g.Webapp, supports PKCE):
 * [oidcrp](https://github.com/IdentityPython/JWTConnect-Python-OidcRP)
 * [oidcrp docs](https://oidcrp.readthedocs.io/en/latest/)
+
+Angular OIDC Client (supports PKCE):
+* [angular-auth-oidc-client](https://github.com/damienbod/angular-auth-oidc-client)
+
+React OIDC (based upon certified oidc-client-js):
+* [oidc-react](https://github.com/bjerkio/oidc-react)
+* [oidc-client-js](oidc-client-js 1.3)
 
 ## Further Reading
 
