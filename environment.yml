@@ -1,0 +1,9 @@
+name: fastapi-oidc
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip=22.3.1
+  - cython
+  - pip:
+      - -r requirements.txt
