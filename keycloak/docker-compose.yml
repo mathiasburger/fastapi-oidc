@@ -29,6 +29,7 @@ services:
         - KEYCLOAK_ADMIN=admin
         - KEYCLOAK_ADMIN_PASSWORD=KcAdmin1234
         - KEYCLOAK_IMPORT=/tmp/realm-export.json
+        - KEYCLOAK_LOGLEVEL=DEBUG
       volumes:
         - ${PWD}/import:/opt/keycloak/data/import
       ports:

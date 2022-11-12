@@ -683,10 +683,10 @@
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "http://localhost:8000/*"
+        "http://localhost:4200/*"
       ],
       "webOrigins": [
-        "http://localhost:8000"
+        "http://localhost:4200"
       ],
       "notBefore": 0,
       "bearerOnly": false,
