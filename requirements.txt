@@ -1,3 +1,4 @@
 fastapi==0.86.0
-oidcrp>2.4.3,<3
-oidcop>2.1.3,<3
+hypercorn==0.14.3
+oidcrp>=2.1.3,<3
+oidcop>=2.4.3,<3

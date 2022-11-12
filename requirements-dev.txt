@@ -1,0 +1,19 @@
+black
+mypy
+pre-commit
+pytest
+# flake8
+flake8
+flake8-bugbear
+flake8-bandit
+flake8-builtins
+flake8-comprehensions
+flake8-docstrings
+flake8-eradicate
+flake8-isort
+flake8-pytest-style
+flake8-commas
+flake8-print
+flake8-simplify
+pep8-naming
+autoflake

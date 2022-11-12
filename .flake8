@@ -1,0 +1,14 @@
+[flake8]
+max-line-length = 120
+ignore =
+    D1
+    S101
+    C813
+    C815
+    C816
+    PT023
+    C812
+    W503
+    T001
+    E501
+exclude = .git,__pycache__,.mypy_cache,.pytest_cache

@@ -1,0 +1,44 @@
+repos:
+  - repo: local
+    hooks:
+      - id: isort
+        name: isort
+        description: 'Sort imports'
+        entry: isort
+        language: python
+        require_serial: true
+        args: [.]
+
+      - id: autoflake
+        name: autoflake
+        description: 'Remove unused imports'
+        entry: autoflake
+        language: python
+        require_serial: true
+        args: [-r, --in-place, --remove-all-unused-imports, --expand-star-imports, "fastapi_oidc"]
+
+      - id: black
+        name: black
+        description: 'Code formatter'
+        language: system
+        entry: black
+        minimum_pre_commit_version: 2.9.2
+        require_serial: true
+        types_or: [python, pyi]
+
+      - id: flake8
+        name: flake8
+        description: '`Style consistency'
+        entry: flake8
+        language: python
+        types: [python]
+        require_serial: true
+
+      - id: mypy
+        name: mypy
+        description: 'Type checker'
+        entry: mypy
+        language: python
+        types_or: [python, pyi]
+        args: ["--ignore-missing-imports", "--scripts-are-modules"]
+        require_serial: true
