@@ -46,6 +46,7 @@ OpenID Connect:
 * [OAuth 2.0 and OpenID Connect Overview (Okta)](https://developer.okta.com/docs/concepts/oauth-openid/)
 * [An Illustrated Guide to OAuth and OpenID Connect (Okta)](https://developer.okta.com/blog/2019/10/21/illustrated-guide-to-oauth-and-oidc) 
 * [Implement the OAuth 2.0 Authorization Code with PKCE Flow (Okta)](https://developer.okta.com/blog/2019/08/22/okta-authjs-pkce)
+* [Validating Access Tokens (Auth0)](https://auth0.com/docs/secure/tokens/access-tokens/validate-access-tokens)
 
 Keycloak:
 * [Running Keycloak in a Container](https://www.keycloak.org/server/containers)
