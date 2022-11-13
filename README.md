@@ -39,7 +39,7 @@ Angular OIDC Client (supports PKCE):
 
 React OIDC (based upon certified oidc-client-js):
 * [oidc-react](https://github.com/bjerkio/oidc-react)
-* [oidc-client-js](oidc-client-js 1.3)
+* [oidc-client-ts](https://github.com/authts/oidc-client-ts)
 
 ## Further Reading
 
