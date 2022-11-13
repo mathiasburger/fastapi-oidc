@@ -56,18 +56,20 @@ def verify_token(
             },
         )
 
-        if "azp" not in token_info:
-            raise JWTError('missing required key "azp" among claims')
+        if authorized_party_ != set():
+            if "azp" not in token_info:
+                raise JWTError('missing required key "azp" among claims')
 
-        if token_info["azp"] not in authorized_party_:
-            raise JWTClaimsError(f"Wrong authorized party {token_info['azp']}")
+            if token_info["azp"] not in authorized_party_:
+                raise JWTClaimsError(f"Wrong authorized party {token_info['azp']}")
 
-        if "scope" not in token_info:
-            raise JWTError('missing required key "scopes" among claims')
+        if scopes_ != set():
+            if "scope" not in token_info:
+                raise JWTError('missing required key "scopes" among claims')
 
-        missing_scopes = scopes_.difference(set(token_info["scope"].split(" ")))
-        if missing_scopes != set():
-            raise JWTClaimsError(f"Missing requested scope(s): {missing_scopes}")
+            missing_scopes = scopes_.difference(set(token_info["scope"].split(" ")))
+            if missing_scopes != set():
+                raise JWTClaimsError(f"Missing requested scope(s): {missing_scopes}")
     except JWTError as exception:
         if log_fn is not None:
             log_fn(str(exception), exception)

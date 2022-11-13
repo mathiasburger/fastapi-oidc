@@ -51,5 +51,5 @@ async def root() -> Dict[str, Any]:
 
 
 @app.get("/protected")
-async def protected(user: str = Depends(get_authorized_user)) -> str:  # noqa: B008
+async def protected(user: User = Depends(get_authorized_user)) -> User:  # noqa: B008
     return user
