@@ -1,7 +1,9 @@
 black
-mypy
 pre-commit
 pytest
+# typing
+mypy
+types-requests>=2.28.11.4
 # flake8
 flake8
 flake8-bugbear

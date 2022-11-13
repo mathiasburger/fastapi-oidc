@@ -46,9 +46,16 @@ OpenID Connect:
 * [OAuth 2.0 and OpenID Connect Overview (Okta)](https://developer.okta.com/docs/concepts/oauth-openid/)
 * [An Illustrated Guide to OAuth and OpenID Connect (Okta)](https://developer.okta.com/blog/2019/10/21/illustrated-guide-to-oauth-and-oidc) 
 * [Implement the OAuth 2.0 Authorization Code with PKCE Flow (Okta)](https://developer.okta.com/blog/2019/08/22/okta-authjs-pkce)
+
+Validation of the Access Token
 * [Validating Access Tokens (Auth0)](https://auth0.com/docs/secure/tokens/access-tokens/validate-access-tokens)
+* [Token Introspection Endpoint (Okta)](https://www.oauth.com/oauth2-servers/token-introspection-endpoint/)
+* [mircoprofile-jwt for Interoperability between Identity and Service Providers](https://github.com/eclipse/microprofile-jwt-auth/blob/master/spec/src/main/asciidoc/interoperability.asciidoc)
 
 Keycloak:
 * [Running Keycloak in a Container](https://www.keycloak.org/server/containers)
 * [Getting Started Docker](https://www.keycloak.org/getting-started/getting-started-docker)
 * [Automatically Importing a Realm](https://keepgrowing.in/tools/keycloak-in-docker-2-how-to-import-a-keycloak-realm/)
+
+JWT:
+* [RFC7519 describing jwt](https://www.rfc-editor.org/rfc/rfc7519.html)

@@ -10,7 +10,11 @@ import {AuthModule, LogLevel} from 'angular-auth-oidc-client';
       redirectUrl: window.location.origin,
       postLogoutRedirectUri: window.location.origin,
       clientId: 'myclient', // client id
-      scope: 'openid profile roles', // 'offline_access' scope requires user consent which needs to be enabled in auth server
+      /*
+       * 'offline_access' scope requires user consent which needs to be enabled in auth server
+       * 'microprofile-jwt' ensures interoperability between identity provider and service provider
+       */
+      scope: 'openid profile roles microprofile-jwt',
       responseType: 'code',
       silentRenew: true,
       useRefreshToken: true,

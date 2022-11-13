@@ -673,7 +673,7 @@
     {
       "id": "a805cb22-ec80-494c-911e-aacd4906d423",
       "clientId": "myclient",
-      "name": "",
+      "name": "My Client",
       "description": "",
       "rootUrl": "",
       "adminUrl": "",
@@ -683,10 +683,12 @@
       "alwaysDisplayInConsole": false,
       "clientAuthenticatorType": "client-secret",
       "redirectUris": [
-        "http://localhost:4200/*"
+        "http://localhost:4200/*",
+        "http://localhost:8000/*"
       ],
       "webOrigins": [
-        "http://localhost:4200"
+        "http://localhost:4200",
+        "http://localhost:8000"
       ],
       "notBefore": 0,
       "bearerOnly": false,
