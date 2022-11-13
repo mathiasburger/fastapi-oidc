@@ -2,9 +2,7 @@
 
 ## Purpose
 
-Demonstrate how to use OIDC with PKCE with fastapi and angular. 
-
-It builds solely upon OIDC certified dependencies.
+Demonstrate how to use OIDC with PKCE with keycloak, fastapi and angular. 
 
 ## Setup
 
@@ -15,7 +13,12 @@ Install pre-commit hooks: `pre-commit install`.
 
 ## Starting
 
-Start the server with `python -m fastapi_oidc.main`.
+Start [keycloak](./keycloak/README_KEYCLOAK.md).
+
+Start the python api server with `python -m fastapi_oidc.main`. Documentation on using 
+SwaggerUI can be found in [fastapi oidc](./fastapi_oidc/README_FASTAPI.md).
+
+Then start the [angular app](./angular_client/README_ANGULAR.md).
 
 ### Keycloak
 
