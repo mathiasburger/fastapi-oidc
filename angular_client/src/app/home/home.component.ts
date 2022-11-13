@@ -5,8 +5,9 @@ import {
   OpenIdConfiguration,
   UserDataResult
 } from 'angular-auth-oidc-client';
-import {Observable} from 'rxjs';
+import {catchError, Observable, throwError} from 'rxjs';
 import {AsyncPipe, JsonPipe} from '@angular/common';
+import {HttpClient, HttpErrorResponse, HttpHeaders} from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -20,8 +21,9 @@ export class HomeComponent implements OnInit {
   userDataChanged$: Observable<OidcClientNotification<any>>;
   userData$: Observable<UserDataResult>;
   isAuthenticated = false;
+  userInfo: any = undefined;
 
-  constructor(public oidcSecurityService: OidcSecurityService) {
+  constructor(public oidcSecurityService: OidcSecurityService, private httpClient: HttpClient) {
   }
 
   ngOnInit() {
@@ -57,5 +59,25 @@ export class HomeComponent implements OnInit {
 
   revokeAccessToken() {
     this.oidcSecurityService.revokeAccessToken().subscribe((result) => console.log(result));
+  }
+
+  accessProtectedApiResource() {
+    this.oidcSecurityService.getAccessToken().subscribe((token) => {
+      const httpOptions = {
+        headers: new HttpHeaders({
+          Authorization: 'Bearer ' + token,
+        }),
+      };
+      console.log("Requesting protected resource")
+      this.httpClient.get("/api/protected", httpOptions).pipe(catchError((error: HttpErrorResponse) => {
+        if (error.status === 0) { // A client-side or network error occurred
+          console.error('An error occurred:', error.error);
+        } else { // The backend returned an unsuccessful response code
+          console.error(`Backend returned code ${error.status}, body was: `, error.error);
+        }
+        // Return an observable with a user-facing error message.
+        return throwError(() => new Error('Something bad happened; please try again later.'));
+      })).subscribe((data) => this.userInfo = data)
+    });
   }
 }

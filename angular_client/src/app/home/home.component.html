@@ -6,10 +6,16 @@
   <button (click)="revokeAccessToken()">Revoke access token</button>
   <button (click)="revokeRefreshToken()">Revoke refresh token</button>
   <button (click)="refreshSession()">Refresh session</button>
+  <button (click)="accessProtectedApiResource()">Access protected api</button>
   <hr/>
 
   <br/>
 
+  User info (retrieve by accessing protected resource):
+  <pre>{{ userInfo | json }}</pre>
+
+  <br/>
+  <br/>
   Is Authenticated: {{ isAuthenticated }}
 
   <br/>

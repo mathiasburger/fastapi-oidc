@@ -8,6 +8,7 @@ import {filter} from 'rxjs/operators';
 import {RouterModule} from "@angular/router";
 import {HomeComponent} from "./home/home.component";
 import {UnauthorizedComponent} from "./unauthorized/unauthorized.component";
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import {UnauthorizedComponent} from "./unauthorized/unauthorized.component";
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {path: '', redirectTo: 'home', pathMatch: 'full'},
       {path: 'home', component: HomeComponent},
