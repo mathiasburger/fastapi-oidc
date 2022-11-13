@@ -1,5 +1,6 @@
 import logging
-from typing import Any, Dict
+from dataclasses import dataclass
+from typing import Any, Dict, List
 
 from fastapi import Depends, FastAPI
 from fastapi.security import OpenIdConnect
@@ -12,20 +13,26 @@ oidc = OpenIdConnect(
 )
 
 
-def get_authorized_user(token: str = Depends(oidc)) -> str:  # noqa: B008
+@dataclass
+class User:
+    username: str
+    groups: List[str]
+
+
+def get_authorized_user(token: str = Depends(oidc)) -> User:  # noqa: B008
     # noinspection PyUnresolvedReferences
     verification_configuration = get_oidc_idp_configuration(oidc.model.openIdConnectUrl)  # type: ignore
     token_info = verify_token(
         token,
         verification_configuration,
         authorized_party="myclient",
-        audience="account",  # todo: add service audience
-        scopes={"profile"},  # todo: add service scope
+        audience="myservice",
+        scopes={"myservice"},
         log_fn=lambda msg, exc: logging.getLogger("authorization").error(
             msg, exc_info=exc
         ),
     )
-    return token_info.username
+    return User(token_info.username, token_info.groups)
 
 
 app = FastAPI(
@@ -33,7 +40,7 @@ app = FastAPI(
         "clientId": "myclient",
         "appName": "My Client",
         "usePkceWithAuthorizationCodeGrant": True,
-        "scopes": "openid profile roles microprofile-jwt",
+        "scopes": "openid profile roles microprofile-jwt myservice",
     }
 )
 

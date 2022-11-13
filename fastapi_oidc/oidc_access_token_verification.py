@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from typing import Callable, Iterable, List, Optional, Set, Union
+from typing import Any, Callable, Dict, Iterable, List, Optional, Set, Union
 
 from fastapi import HTTPException
 from jose import JWTError, jwt
@@ -13,6 +13,7 @@ from fastapi_oidc.oidc_configuration import OidcIdpConfiguration
 class AccessTokenInfo:
     username: str
     groups: List[str]
+    raw: Dict[str, Any]
 
 
 def verify_token(
@@ -76,7 +77,9 @@ def verify_token(
             detail="Could not validate credentials",
             headers={"WWW-Authenticate": "Bearer"},
         )
-    return AccessTokenInfo(username=token_info["upn"], groups=token_info["groups"])
+    return AccessTokenInfo(
+        username=token_info["upn"], groups=token_info["groups"], raw=token_info
+    )
 
 
 def _to_set_of_str(audience: Optional[Union[str, Iterable[str]]]) -> Set[str]:

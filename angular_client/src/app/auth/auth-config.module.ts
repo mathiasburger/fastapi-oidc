@@ -13,8 +13,9 @@ import {AuthModule, LogLevel} from 'angular-auth-oidc-client';
       /*
        * 'offline_access' scope requires user consent which needs to be enabled in auth server
        * 'microprofile-jwt' ensures interoperability between identity provider and service provider
+       * add the scopes that grant access to services, e.g. 'myservice'
        */
-      scope: 'openid profile roles microprofile-jwt',
+      scope: 'openid profile roles microprofile-jwt myservice',
       responseType: 'code',
       silentRenew: true,
       useRefreshToken: true,
